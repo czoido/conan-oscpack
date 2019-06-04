@@ -31,6 +31,7 @@
 build/
 
 test_package/build
+.vscode/
 .vscode/settings.json
 export_env.sh
 .idea/conan-levmar.iml
