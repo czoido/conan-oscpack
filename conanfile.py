@@ -16,6 +16,11 @@ class OscpackConan(ConanFile):
 
     def source(self):
         tools.get(**self.conan_data["sources"]["1.1.0"])
+        tools.replace_in_file("{}/CMakeLists.txt".format(self._source_subfolder),
+            "PROJECT(TestOscpack)",
+            '''PROJECT(TestOscpack)
+            include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+            conan_basic_setup()''')
 
     def build(self):
         cmake = CMake(self)
