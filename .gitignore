@@ -93,3 +93,9 @@ staticfiles
 .env
 
 venv/
+test_package/CMakeLists.txt
+conanbuildinfo.cmake
+conanbuildinfo.txt
+conaninfo.txt
+graph_info.json
+test_package/CMakeLists.txt

@@ -15,11 +15,7 @@ class OscpackConan(ConanFile):
     _build_subfolder = "build"
 
     def source(self):
-        sha256 = "8389db649ed0a47b52bffe60aeec5157d192f59b4870d7487425d75032b05060"
-        tools.get("https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/oscpack/oscpack_1_1_0.zip",
-                  sha256=sha256)        
-        tools.replace_in_file("%s/CMakeLists.txt" % self._source_subfolder, "ADD_EXECUTABLE(OscUnitTests tests/OscUnitTests.cpp)",
-                              "TARGET_LINK_LIBRARIES(oscpack ${LIBS})\n\nADD_EXECUTABLE(OscUnitTests tests/OscUnitTests.cpp)")
+        tools.get(**self.conan_data["sources"]["1.1.0"])
 
     def build(self):
         cmake = CMake(self)
